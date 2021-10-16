@@ -9,38 +9,35 @@ import game as ga
 def main():  # khó
     game = ga.Game()
     game.setup()
-    print("==========================")
-    print('1.Xem danh sách người chơi')
-    print("2.Thêm mới người chơi ")
-    print("3.Bỏ một người chơi ")
-    print("4.Chia bài ")
-    print("5.Lật bài: ")
-    print("6.Xem lịch sử chơi")
-    print("7.Tổng số lượt chơi trong ngày")
-    print("===========================================================")
-    luachon=int(input("lựa chọn của bạn:"))
-    def luachon_(lc):
-        switcher={
-                1:game.list_players(),
-                2: game.list_players(),
-                3:'Tuesday',
-                4:'Wednesday',
-                5:'Thursday',
-                6:'Friday',
-                7:'Saturday'
-             }
-        return f'{switcher.get(lc)}'
-    luachon_(luachon)
-    # if luachon==1:
-    #     game.list_players()
-
-
-
+    memu=[]
+    memu.append('1.Xem danh sách người chơi')
+    memu.append ('2.Thêm mới người chơi ')
+    memu.append ('4.Chia bài ')
+    memu.append('5.Lật bài: ')
+    memu.append('6.Xem lịch sử chơi')
+    memu.append("7.Tổng số lượt chơi trong ngày")
+    memu.append('8. Thoát game')
+    while True:
+        for i in memu:
+            print(i)
+        luachon=int(input("lựa chọn của bạn:"))
+        if luachon== 1:
+                    game.list_players()
+        elif luachon==2:
+                    game.add_player()
+        elif luachon==3:
+                    id=int(input("Nhập id người dùng muốn xóa:"))
+                    game.remove_player(id)
+        elif luachon==4:
+                   game.deal_card()
+        elif luachon==5:
+                    game.flip_card()
+        elif luachon==8:
+                    break
+        else:
+                 print("Unknown Option Selected!")
 
 
 
 main()
-
-
-
 
