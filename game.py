@@ -48,32 +48,30 @@ class Game:
         for i in range(0,len(self.lisNguoi)):
             self.lisNguoi[i].add_card(self.boBai.deal_card())
             self.lisNguoi[i].add_card(self.boBai.deal_card())
-            self.lisNguoi[i].add_card(self.boBai.deal_card())
-        for i in self.boBai.liscard:
-                i.__str__()
-#lật bái cho tất cả người chơi, thông báo người chiến t:hắng
+            self.lisNguoi[i].add_card(self.boBai.deal_card())       
+#lật bái cho tất cả người chơi, thông báo người chiến thắng
     def flip_card(self):
         diem=[]
         for i in range(0,len(self.lisNguoi)):
-          self.lisNguoi[i].flip_card()
-          diem.append(self.lisNguoi[i].point)
+            diem.append(self.lisNguoi[i].point)
+            
         lismax=[]
-        #print(max(diem))
         for i in range(0,len(self.lisNguoi)):
             if self.lisNguoi[i].point==max(diem):
                 lismax.append(self.lisNguoi[i])
         one=lismax[0]
         if len(lismax)==1:
-           print(f'người chơi chiến thắng:',end='')
-           lismax[0].flip_card()
+           return lismax[0]
         else:
             for i in lismax:
                 car= ca.Card(i.biggest_card.rank,i.biggest_card.suit)
                 car1=ca.Card(one.biggest_card.rank,one.biggest_card.suit)
                 if car.__gt__(car1) == car:
                     one = i
-            print(f'người chơi chiến thắng:', end='')
-            one.flip_card()
+           # print(f'người chơi chiến thắng:', end='')
+           # one.flip_card()
+            return one
+        
 
 # ga=Game()
 # ga.setup()

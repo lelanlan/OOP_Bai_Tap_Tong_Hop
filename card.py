@@ -51,9 +51,11 @@ class Card:
 
     def __str__(self):
         if self.rankA=='A':
-            print(f'{self.rankA}{self.suit}')
+            lb=str(self.rankA)+str(self.suit)
+            return lb
         else:
-            print(f'{self.rank}{self.suit}')
+            lb=str(self.rank)+str(self.suit)
+            return lb
 
     def __gt__(self, Card):
        if self.rank>Card.rank:

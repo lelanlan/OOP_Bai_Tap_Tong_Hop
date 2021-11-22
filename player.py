@@ -48,7 +48,13 @@ class Player:
     '''Lật bài, hiển thị các lá bài '♠', '♣', '♦', '♥'''
     def flip_card(self):
         print(f'{self.name}   {self.listBai[0].rank}{self.listBai[0].suit} {self.listBai[1].rank}{self.listBai[1].suit} {self.listBai[2].rank}{self.listBai[2].suit} Điểm:{self.point} Lá bài lớn nhất:',end='')
-        self.biggest_card.__str__()
+        print( self.biggest_card.__str__())
+    
+    '''gép các lá bài '♠', '♣', '♦', '♥'''
+    def ghep_card(self):
+        ghep = str(self.listBai[0].rank)+str(self.listBai[0].suit)+str(self.listBai[1].rank)+str(self.listBai[1].suit)+str(self.listBai[2].rank)+str(self.listBai[2].suit)
+        return ghep
+
 
 
 # pl=Player("lan")
