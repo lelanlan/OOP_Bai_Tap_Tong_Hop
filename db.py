@@ -22,6 +22,10 @@ def log(ga,dem):
             cnx.commit()
         except:
             cnx.rollback()
+   
+
+    
+def game(ga,dem):
     sql1="INSERT INTO game (name_win,lanchoi,time) VALUES (%s, %s,%s)"
     value1=(ga.flip_card().name,dem,datetime.now())
     cur1 = cnx.cursor()

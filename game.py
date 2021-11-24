@@ -12,9 +12,10 @@ class Game:
     def __init__(self,lisNguoi=[]):
         self.lisNguoi=lisNguoi
         self.boBai= dec.Deck()
+        self.is_playing = False
     def setup(self):
-        print("chào mưng bạn đến với game bài 3 cây")
-        print("Nhập số lượng người chơi:")
+        print("chào mưng bạn đến với game bài 3 cây (>‿◠)✌")
+        print("Nhập số lượng người chơi (•‿•) :")
         n= int(input())
         while(n>5):
             print("chỉ cho tối đa 5 người chơi")
@@ -22,7 +23,7 @@ class Game:
         i = 1
         self.lisNguoi = []
         while(n!=0):
-            name=input(f"Tên người chơi thứ {i}: ")
+            name=input(f"☻Tên người chơi thứ {i}: ")
             i=i+1
             pla.Player(name)
             self.lisNguoi.append(pla.Player(name))
@@ -48,13 +49,14 @@ class Game:
         for i in range(0,len(self.lisNguoi)):
             self.lisNguoi[i].add_card(self.boBai.deal_card())
             self.lisNguoi[i].add_card(self.boBai.deal_card())
-            self.lisNguoi[i].add_card(self.boBai.deal_card())       
+            self.lisNguoi[i].add_card(self.boBai.deal_card())  
+        self.is_playing = True     
 #lật bái cho tất cả người chơi, thông báo người chiến thắng
     def flip_card(self):
+        self.is_playing = False
         diem=[]
         for i in range(0,len(self.lisNguoi)):
-            diem.append(self.lisNguoi[i].point)
-            
+            diem.append(self.lisNguoi[i].point) 
         lismax=[]
         for i in range(0,len(self.lisNguoi)):
             if self.lisNguoi[i].point==max(diem):
