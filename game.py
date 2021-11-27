@@ -16,10 +16,17 @@ class Game:
     def setup(self):
         print("chào mưng bạn đến với game bài 3 cây (>‿◠)✌")
         print("Nhập số lượng người chơi (•‿•) :")
-        n= int(input())
-        while(n>5):
-            print("chỉ cho tối đa 5 người chơi")
-            n = int(input("nhập lại số lượng người chơi:"))
+        while True:
+            try:
+                n =int(input())
+                if n>6 or n<2:
+                   print("Nhập số người chơi trong khoảng từ 2-6")
+                else:
+                    break
+            except:
+                print("Bạn cần nhập đúng kiểu dữ liệu")
+                print("nhập lại số người chơi: ")
+            
         i = 1
         self.lisNguoi = []
         while(n!=0):

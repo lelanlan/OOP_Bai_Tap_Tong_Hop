@@ -16,6 +16,7 @@ def main():  # khó
     
     memu.append('1.Xem danh sách người chơi  ♥‿♥')
     memu.append ('2.Thêm mới người chơi ♥‿♥')
+    memu.append ('3.Xóa người chơi theo id ♥‿♥')
     memu.append ('4.Chia bài ♥‿♥')
     memu.append('5.Lật bài ♥‿♥')
     memu.append('6.Xem game gần nhất ♥‿♥')
@@ -28,10 +29,16 @@ def main():  # khó
         if luachon==1:
                     game.list_players()
         elif luachon==2:
-                    game.add_player()
+                    if game.is_playing == True:
+                        print("\nĐang trong ván bài không được thêm người mưới ^^^^^ (•‿•)\n")
+                    else:
+                         game.add_player()
         elif luachon==3:
-                    id=int(input("Nhập id người dùng muốn xóa:"))
-                    game.remove_player(id)
+                    if game.is_playing == True:
+                        print("\nĐang trong ván bài không được xóa ^^^^^ (•‿•)\n")
+                    else:
+                        id=int(input("Nhập id người dùng muốn xóa:"))
+                        game.remove_player(id)
         elif luachon==4:
                   if game.is_playing:
                       print("\nBài đã được chia rồi ^^^^^ ≧◔◡◔≦ \n")

@@ -28,6 +28,7 @@ def log(ga,dem):
 def game(ga,dem):
     sql1="INSERT INTO game (name_win,lanchoi,time) VALUES (%s, %s,%s)"
     value1=(ga.flip_card().name,dem,datetime.now())
+   # print(datetime.now())
     cur1 = cnx.cursor()
     try:
             cur1.execute(sql1,value1)
@@ -84,7 +85,7 @@ def history():
     for i in cur:
         print(f"Tồng số game đã chơi trong ngày hôm nay: {i[0]}")
 
-    sql1="SELECT name_win,COUNT(name_win) as tong FROM game GROUP BY name_win"
+    sql1=f"SELECT name_win,COUNT(name_win) as tong FROM game where time like '{date.today()}%' GROUP BY name_win"
     cur1 = cnx.cursor()
     cur1.execute(sql1)
     for i in cur1:
